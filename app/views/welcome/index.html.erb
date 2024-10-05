@@ -12,3 +12,9 @@
   <button class="btn btn-dark rounded-pill px-3" type="button">Dark</button>
   <button class="btn btn-link rounded-pill px-3" type="button">Link</button>
 </div>
+
+<% if current_user %>
+Welcome <%= current_user.email %>
+<% else %>
+<%= link_to "Sign in", new_user_session_path %>
+<% end %>
