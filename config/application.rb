@@ -23,5 +23,20 @@ module DemoBootstrapCdn
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.action_mailer.delivery_method = :smtp
+
+    config.action_mailer.smtp_settings = {
+      address:         'smtp.gmail.com',
+      port:            587,
+      user_name:       ENV['smtp_user_name'],
+      password:        ENV['smtp_password'],
+      authentication:  'plain',
+      enable_starttls: true,
+      open_timeout:    5,
+      read_timeout:    5 
+    }
+
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   end
 end
